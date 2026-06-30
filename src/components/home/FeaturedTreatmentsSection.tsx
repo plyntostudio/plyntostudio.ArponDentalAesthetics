@@ -40,24 +40,18 @@ interface TreatmentRowProps {
 
 function TreatmentRow({ title, description, href, gradient, reversed }: TreatmentRowProps) {
   return (
-    <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
+    <div className="panel-card grid grid-cols-1 items-center gap-8 p-5 md:grid-cols-2 md:gap-12 md:p-7 lg:gap-16 lg:p-8">
       <div className={reversed ? 'md:order-2' : undefined}>
-        <div
-          className={`aspect-[4/3] w-full bg-gradient-to-br ${gradient} rounded-[6px]`}
-          aria-hidden="true"
-        />
+        <div className={`image-shell aspect-[4/3] w-full bg-gradient-to-br ${gradient}`} aria-hidden="true" />
       </div>
       <div className={reversed ? 'md:order-1' : undefined}>
-        <h3 className="font-serif text-[clamp(1.25rem,1.75vw,1.75rem)] leading-snug text-text-main">
+        <h3 className="font-serif text-[clamp(1.38rem,1.85vw,1.9rem)] leading-[1.08] tracking-[-0.025em] text-text-main">
           {title}
         </h3>
-        <p className="mt-3 text-base leading-relaxed text-text-muted">
+        <p className="mt-4 max-w-xl text-base leading-[1.85] text-text-muted">
           {description}
         </p>
-        <Link
-          href={href}
-          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors duration-200 hover:text-accent-dark"
-        >
+        <Link href={href} className="text-link mt-5">
           Learn more
           <span aria-hidden="true" className="text-lg leading-none">&rarr;</span>
         </Link>
@@ -70,18 +64,16 @@ export function FeaturedTreatmentsSection() {
   const featured = SERVICE_ITEMS.slice(0, 3);
 
   return (
-    <section className="bg-white py-16 lg:py-20" aria-label="Featured treatments">
+    <section className="section-frame bg-white py-[4.5rem] lg:py-24" aria-label="Featured treatments">
       <div className="container-main">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.1] text-text-main">
-            Treatments We Offer
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-text-muted">
-            Comprehensive dental care tailored to your needs — from routine check-ups to advanced restorative procedures.
+        <div className="section-intro">
+          <h2 className="section-title">Treatments We Offer</h2>
+          <p className="section-copy">
+            Comprehensive dental care tailored to your needs, from routine check-ups to advanced restorative procedures.
           </p>
         </div>
 
-        <div className="mt-14 space-y-14 lg:mt-16 lg:space-y-16">
+        <div className="mt-14 space-y-8 lg:mt-[4.5rem] lg:space-y-10">
           {featured.map((item, index) => (
             <TreatmentRow
               key={item.href}
@@ -95,10 +87,7 @@ export function FeaturedTreatmentsSection() {
         </div>
 
         <div className="mt-14 text-center">
-          <Link
-            href="/services"
-            className="inline-flex items-center justify-center rounded-[6px] border-2 border-border bg-transparent px-8 py-3.5 text-base font-semibold text-text-main transition-all duration-200 hover:border-text-muted hover:bg-highlight active:scale-[0.98]"
-          >
+          <Link href="/services" className="button-secondary">
             View All Services
             <span aria-hidden="true" className="ml-1.5 text-lg leading-none">&rarr;</span>
           </Link>

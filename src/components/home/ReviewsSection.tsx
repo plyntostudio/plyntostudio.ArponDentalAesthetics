@@ -30,11 +30,7 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex items-center gap-0.5" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }, (_, i) => (
-        <span
-          key={i}
-          className={i < rating ? 'text-accent' : 'text-border'}
-          aria-hidden="true"
-        >
+        <span key={i} className={i < rating ? 'text-accent' : 'text-border'} aria-hidden="true">
           ★
         </span>
       ))}
@@ -44,33 +40,27 @@ function StarRating({ rating }: { rating: number }) {
 
 export function ReviewsSection() {
   return (
-    <section className="bg-white py-16 lg:py-20" aria-label="Patient reviews">
+    <section className="section-frame bg-white py-[4.5rem] lg:py-24" aria-label="Patient reviews">
       <div className="container-main">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.1] text-text-main">
-            What Our Patients Say
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-text-muted">
-            Real feedback from the people we care for.
-          </p>
+        <div className="section-intro">
+          <h2 className="section-title">What Our Patients Say</h2>
+          <p className="section-copy">Real feedback from the people we care for.</p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
           {PLACEHOLDER_REVIEWS.map((review, index) => (
             <div
               key={index}
-              className="flex flex-col rounded-[6px] border border-border bg-white p-6"
+              className="panel-card flex h-full flex-col p-6 transition-transform duration-200 hover:-translate-y-1"
             >
               <StarRating rating={review.rating} />
-              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-text-muted">
+              <blockquote className="mt-4 flex-1 text-[0.95rem] leading-[1.9] text-text-muted">
                 &ldquo;{review.text}&rdquo;
               </blockquote>
-              <div className="mt-5 border-t border-border pt-4">
+              <div className="mt-6 border-t border-border/80 pt-4">
                 <span className="block text-sm font-medium text-text-main">{review.name}</span>
                 {review.treatmentType && (
-                  <span className="mt-0.5 block text-xs text-text-muted">
-                    {review.treatmentType}
-                  </span>
+                  <span className="mt-0.5 block text-xs text-text-muted">{review.treatmentType}</span>
                 )}
               </div>
             </div>
@@ -78,10 +68,7 @@ export function ReviewsSection() {
         </div>
 
         <div className="mt-10 text-center">
-          <Link
-            href="/reviews"
-            className="inline-flex items-center justify-center rounded-[6px] border-2 border-border bg-transparent px-8 py-3.5 text-base font-semibold text-text-main transition-all duration-200 hover:border-text-muted hover:bg-highlight active:scale-[0.98]"
-          >
+          <Link href="/reviews" className="button-secondary">
             Read All Reviews
             <span aria-hidden="true" className="ml-1.5 text-lg leading-none">&rarr;</span>
           </Link>

@@ -5,32 +5,26 @@ import { SITE_CONFIG } from '@/lib/constants';
 export function QuickAppointmentSection() {
   return (
     <section
-      className="border-t border-border bg-white py-14 lg:py-18"
+      className="section-frame section-transition-top bg-white py-16 lg:py-20"
       aria-label="Quick appointment"
     >
       <div className="container-main">
-        <div className="mx-auto max-w-xl text-center">
-          <h2 className="font-serif text-[clamp(1.375rem,2vw,2rem)] leading-[1.2] text-text-main">
+        <div className="panel-card mx-auto max-w-4xl px-6 py-10 text-center md:px-10 md:py-12">
+          <h2 className="font-serif text-[clamp(1.5rem,2.2vw,2.3rem)] leading-[1.1] tracking-[-0.03em] text-text-main">
             Ready to Book Your Appointment?
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-text-muted">
+          <p className="mx-auto mt-4 max-w-2xl text-[1.03rem] leading-[1.85] text-text-muted">
             Call us or book online. We&rsquo;re here to help you smile with confidence.
           </p>
           <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Link
-              href="/book"
-              className="inline-flex w-full items-center justify-center rounded-[6px] bg-accent px-7 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark active:scale-[0.98] sm:w-auto"
-            >
+            <Link href="/book" className="button-primary w-full sm:w-auto">
               Book Appointment
             </Link>
-            <Link
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="inline-flex w-full items-center justify-center rounded-[6px] border-2 border-border bg-transparent px-7 py-3 text-sm font-semibold text-text-main transition-all duration-200 hover:border-text-muted hover:bg-highlight active:scale-[0.98] sm:w-auto"
-            >
+            <Link href={`tel:${SITE_CONFIG.phone}`} className="button-secondary w-full sm:w-auto">
               Call Now
             </Link>
           </div>
-          <p className="mt-5 text-sm text-text-muted">
+          <p className="mt-6 text-sm text-text-muted">
             Or call{' '}
             <a
               href={`tel:${SITE_CONFIG.phone}`}
