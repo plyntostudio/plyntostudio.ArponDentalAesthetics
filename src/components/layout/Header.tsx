@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { NAV_ITEMS, SITE_CONFIG } from '@/lib/constants';
@@ -12,6 +12,7 @@ import { MobileNav } from './MobileNav';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   const isScrolled = useScrollPosition(20);
@@ -24,6 +25,7 @@ export function Header() {
 
   const handleClose = useCallback(() => {
     setMobileMenuOpen(false);
+    toggleRef.current?.focus();
   }, []);
 
   return (
@@ -58,7 +60,7 @@ export function Header() {
             </a>
           </div>
 
-          <MobileNavToggle open={mobileMenuOpen} onToggle={handleToggle} />
+          <MobileNavToggle ref={toggleRef} open={mobileMenuOpen} onToggle={handleToggle} />
         </div>
       </header>
 

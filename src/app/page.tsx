@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/home/HeroSection';
+import { TrustParallaxSection } from '@/components/home/TrustParallaxSection';
 import { QuickAppointmentSection } from '@/components/home/QuickAppointmentSection';
 import { FeaturedTreatmentsSection } from '@/components/home/FeaturedTreatmentsSection';
 import { WhyChooseUsSection } from '@/components/home/WhyChooseUsSection';
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <TrustParallaxSection />
       <QuickAppointmentSection />
       <FeaturedTreatmentsSection />
       <WhyChooseUsSection />

@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { SITE_CONFIG } from '@/lib/constants';
 import type { NavItem } from '@/types';
@@ -49,6 +49,7 @@ const linkVariants = {
 export function MobileNav({ open, onClose, items }: MobileNavProps) {
   const pathname = usePathname();
   const overlayRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     if (open) {
@@ -111,6 +112,8 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
     [onClose],
   );
 
+  const disableAnimation = prefersReducedMotion;
+
   return (
     <AnimatePresence>
       {open && (
@@ -126,14 +129,22 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
-            variants={overlayVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
+            variants={disableAnimation ? undefined : overlayVariants}
+            initial={disableAnimation ? false : 'hidden'}
+            animate={disableAnimation ? undefined : 'visible'}
+            exit={disableAnimation ? undefined : 'exit'}
             className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-bg shadow-xl"
           >
             <div className="flex items-center justify-between border-b border-border px-4 h-16">
               <span className="font-display text-lg text-accent">Arpon Dental</span>
+              <button
+                type="button"
+                onClick={onClose}
+                className="flex h-11 w-11 items-center justify-center rounded-[6px] transition-colors duration-200 hover:bg-highlight focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                aria-label="Close navigation menu"
+              >
+                <span aria-hidden="true" className="text-2xl leading-none text-text-main">&times;</span>
+              </button>
             </div>
 
             <nav aria-label="Mobile navigation" className="flex-1 overflow-y-auto px-4 py-6">
@@ -144,9 +155,9 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
                     <motion.li
                       key={item.href}
                       custom={i}
-                      variants={linkVariants}
-                      initial="hidden"
-                      animate="visible"
+                      variants={disableAnimation ? undefined : linkVariants}
+                      initial={disableAnimation ? false : 'hidden'}
+                      animate={disableAnimation ? undefined : 'visible'}
                     >
                       <Link
                         href={item.href}
@@ -157,7 +168,6 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
                             : 'text-text-main hover:bg-highlight',
                         )}
                         aria-current={active ? 'page' : undefined}
-                        tabIndex={0}
                       >
                         {item.label}
                       </Link>
