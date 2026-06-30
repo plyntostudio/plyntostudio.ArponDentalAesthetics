@@ -74,7 +74,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-text-muted" role="list">
               <li>
                 <span className="block text-text-main font-medium text-xs uppercase tracking-wider mb-0.5">Address</span>
-                <span className="leading-relaxed">{SITE_CONFIG.address.full}</span>
+                <a href={SITE_CONFIG.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="leading-relaxed transition-colors duration-200 hover:text-text-main">{SITE_CONFIG.address.full}</a>
               </li>
               <li>
                 <span className="block text-text-main font-medium text-xs uppercase tracking-wider mb-0.5">Phone</span>

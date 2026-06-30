@@ -1,20 +1,21 @@
 import Link from 'next/link';
+import { DENTIST } from '@/lib/constants';
 
 const TEAM_MEMBERS = [
   {
-    name: 'Dr. [Name]',
-    role: 'Lead Dentist',
+    name: DENTIST.name,
+    role: DENTIST.title,
     description:
       'With years of experience and advanced training, our lead dentist brings expertise and genuine compassion to every patient interaction.',
   },
   {
-    name: '[Name]',
+    name: '',
     role: 'Dental Hygienist',
     description:
       'Our skilled hygienist ensures every cleaning is thorough, gentle, and tailored to your oral health needs.',
   },
   {
-    name: '[Name]',
+    name: '',
     role: 'Patient Coordinator',
     description:
       'The first and last smile you see. Our coordinator handles scheduling, insurance, and ensures a seamless visit.',

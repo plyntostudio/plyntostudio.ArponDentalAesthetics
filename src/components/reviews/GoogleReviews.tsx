@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export function GoogleReviews() {
-  const hasGoogleUrl = SITE_CONFIG.googleReviewsUrl !== 'Requires Client Confirmation';
-
   return (
     <section className="bg-accent-bg py-16 lg:py-20" aria-label="Google reviews">
       <div className="container-main">
@@ -34,7 +32,7 @@ export function GoogleReviews() {
 
           <div className="mt-6">
             <Link
-              href={hasGoogleUrl ? SITE_CONFIG.googleReviewsUrl : '#'}
+              href={SITE_CONFIG.googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-[6px] border-2 border-border bg-white px-8 py-3.5 text-base font-semibold text-text-main transition-all duration-200 hover:border-text-muted hover:bg-highlight active:scale-[0.98]"

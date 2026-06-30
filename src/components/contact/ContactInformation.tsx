@@ -5,8 +5,9 @@ const CONTACT_DETAILS = [
   {
     label: 'Address',
     value: SITE_CONFIG.address.full,
-    href: SITE_CONFIG.googleMapsUrl !== 'Requires Client Confirmation' ? SITE_CONFIG.googleMapsUrl : undefined,
+    href: SITE_CONFIG.googleMapsUrl,
     linkLabel: 'Get directions',
+    external: true,
   },
   {
     label: 'Phone',
@@ -23,8 +24,8 @@ const CONTACT_DETAILS = [
   },
   {
     label: 'Email',
-    value: SITE_CONFIG.email !== 'Requires Client Confirmation' ? SITE_CONFIG.email : 'Email coming soon',
-    href: SITE_CONFIG.email !== 'Requires Client Confirmation' ? `mailto:${SITE_CONFIG.email}` : undefined,
+    value: SITE_CONFIG.email,
+    href: `mailto:${SITE_CONFIG.email}`,
   },
 ];
 

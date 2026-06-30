@@ -3,26 +3,23 @@ import Link from 'next/link';
 import type { Review } from '@/types';
 import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
-const PLACEHOLDER_REVIEWS: Review[] = [
+const REVIEWS: Review[] = [
   {
-    name: 'Placeholder Name',
+    name: 'Bora Sunita',
     rating: 5,
-    text: 'Patient testimonial coming soon. Real reviews from Google and our clinic will appear here once content is confirmed.',
-    treatmentType: 'General Dentistry',
+    text: 'One of the best dental clinics in Assam. Dr. Darpon Bora is humble, approachable, and provides excellent treatment. Half of your worries disappear the moment you speak with him.',
     source: 'google',
   },
   {
-    name: 'Placeholder Name',
+    name: 'Gitartha Talukdar',
     rating: 5,
-    text: 'Patient testimonial coming soon. Real reviews from Google and our clinic will appear here once content is confirmed.',
-    treatmentType: 'Cosmetic Dentistry',
-    source: 'clinic',
+    text: 'A trusted dental clinic in Golaghat offering quality treatment that meets international standards. Highly recommended.',
+    source: 'google',
   },
   {
-    name: 'Placeholder Name',
+    name: 'Deepa Bhattacharya',
     rating: 5,
-    text: 'Patient testimonial coming soon. Real reviews from Google and our clinic will appear here once content is confirmed.',
-    treatmentType: 'Root Canal Treatment',
+    text: 'Choosing Arpon Dental Aesthetics was the right decision. The care and service exceeded my expectations, and I confidently recommend the clinic to anyone seeking dental treatment.',
     source: 'google',
   },
 ];
@@ -51,7 +48,7 @@ export function ReviewsSection() {
         </ScrollReveal>
 
         <StaggerContainer className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
-          {PLACEHOLDER_REVIEWS.map((review, index) => (
+          {REVIEWS.map((review, index) => (
             <StaggerItem key={index}>
               <div className="card-hover panel-surface flex h-full flex-col p-6">
                 <StarRating rating={review.rating} />
@@ -59,7 +56,14 @@ export function ReviewsSection() {
                   &ldquo;{review.text}&rdquo;
                 </blockquote>
                 <div className="mt-6 border-t border-border/80 pt-4">
-                  <span className="block text-sm font-medium text-text-main">{review.name}</span>
+                  <span className="block text-sm font-medium text-text-main">
+                    {review.name}
+                    {review.badge && (
+                      <span className="ml-1.5 inline-block rounded-[3px] bg-accent-bg px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-accent">
+                        {review.badge}
+                      </span>
+                    )}
+                  </span>
                   {review.treatmentType && (
                     <span className="mt-0.5 block text-xs text-text-muted">{review.treatmentType}</span>
                   )}

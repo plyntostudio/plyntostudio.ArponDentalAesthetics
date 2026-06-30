@@ -63,7 +63,7 @@ export function OverallRating() {
 
           <div className="mt-10">
             <Link
-              href={SITE_CONFIG.googleReviewsUrl !== 'Requires Client Confirmation' ? SITE_CONFIG.googleReviewsUrl : '#'}
+              href={SITE_CONFIG.googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-[6px] border-2 border-border bg-transparent px-6 py-2.5 text-sm font-semibold text-text-main transition-all duration-200 hover:border-text-muted hover:bg-highlight active:scale-[0.98]"

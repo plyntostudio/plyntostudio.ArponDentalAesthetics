@@ -16,6 +16,7 @@ export interface Review {
   treatmentType?: string;
   date?: string;
   source?: 'google' | 'clinic';
+  badge?: string;
 }
 
 export interface ServiceSummary {

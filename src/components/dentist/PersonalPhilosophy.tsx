@@ -1,3 +1,5 @@
+import { DENTIST } from '@/lib/constants';
+
 export function PersonalPhilosophy() {
   return (
     <section className="bg-accent-bg py-16 lg:py-20" aria-label="Personal philosophy">
@@ -12,7 +14,7 @@ export function PersonalPhilosophy() {
             helping people feel confident in their smiles.
           </blockquote>
           <div className="mt-6 h-[2px] w-10 bg-accent" aria-hidden="true" />
-          <p className="mt-4 text-sm font-medium text-text-muted">&mdash; Dr. [Name]</p>
+          <p className="mt-4 text-sm font-medium text-text-muted">&mdash; {DENTIST.name}</p>
         </div>
       </div>
     </section>

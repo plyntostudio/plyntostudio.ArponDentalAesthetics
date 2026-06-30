@@ -2,46 +2,41 @@ import type { Review } from '@/types';
 
 const ALL_REVIEWS: Review[] = [
   {
-    name: 'Placeholder Name',
+    name: 'Bora Sunita',
     rating: 5,
-    text: 'Patient testimonial coming soon. Real reviews from Google and our clinic will appear here once content is confirmed.',
-    treatmentType: 'General Dentistry',
+    text: 'One of the best dental clinics in Assam. Dr. Darpon Bora is humble, approachable, and provides excellent treatment. Half of your worries disappear the moment you speak with him.',
     source: 'google',
   },
   {
-    name: 'Placeholder Name',
+    name: 'Dibyashree Bordoloi',
     rating: 5,
-    text: 'Patient testimonial coming soon. Real reviews from Google and our clinic will appear here once content is confirmed.',
-    treatmentType: 'Cosmetic Dentistry',
-    source: 'clinic',
-  },
-  {
-    name: 'Placeholder Name',
-    rating: 5,
-    text: 'Patient testimonial coming soon. Real reviews from Google and our clinic will appear here once content is confirmed.',
-    treatmentType: 'Root Canal Treatment',
+    text: 'One of the best dental clinics in Golaghat. The clinic is clean, hygienic, and equipped with modern facilities. I was very satisfied with the treatment and highly recommend Arpon Dental Aesthetics.',
     source: 'google',
   },
   {
-    name: 'Placeholder Name',
+    name: 'Gitartha Talukdar',
     rating: 5,
-    text: 'Patient testimonial coming soon. Real reviews from Google and our clinic will appear here once content is confirmed.',
-    treatmentType: 'Pediatric Dentistry',
+    text: 'A trusted dental clinic in Golaghat offering quality treatment that meets international standards. Highly recommended.',
     source: 'google',
   },
   {
-    name: 'Placeholder Name',
+    name: 'Deepa Bhattacharya',
     rating: 5,
-    text: 'Patient testimonial coming soon. Real reviews from Google and our clinic will appear here once content is confirmed.',
-    treatmentType: 'Dental Implants',
-    source: 'clinic',
+    text: 'Choosing Arpon Dental Aesthetics was the right decision. The care and service exceeded my expectations, and I confidently recommend the clinic to anyone seeking dental treatment.',
+    source: 'google',
   },
   {
-    name: 'Placeholder Name',
+    name: 'Shilpi Gogoi',
     rating: 5,
-    text: 'Patient testimonial coming soon. Real reviews from Google and our clinic will appear here once content is confirmed.',
-    treatmentType: 'Teeth Whitening',
+    text: 'A wonderful experience with a supportive and caring doctor. I received excellent treatment and genuinely appreciate the professionalism and results.',
     source: 'google',
+  },
+  {
+    name: 'Pranjal Chetia',
+    rating: 5,
+    text: 'Dr. Darpon Bora and the entire team were caring and professional. My root canal treatment and dental implant were painless, and the results were excellent.',
+    source: 'google',
+    badge: 'Local Guide',
   },
 ];
 
@@ -87,14 +82,21 @@ export function PatientReviews() {
               <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-text-muted">
                 &ldquo;{review.text}&rdquo;
               </blockquote>
-              <div className="mt-5 border-t border-border pt-4">
-                <span className="block text-sm font-medium text-text-main">{review.name}</span>
-                {review.treatmentType && (
-                  <span className="mt-0.5 block text-xs text-text-muted">
-                    {review.treatmentType}
+                <div className="mt-5 border-t border-border pt-4">
+                  <span className="block text-sm font-medium text-text-main">
+                    {review.name}
+                    {review.badge && (
+                      <span className="ml-1.5 inline-block rounded-[3px] bg-accent-bg px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-accent">
+                        {review.badge}
+                      </span>
+                    )}
                   </span>
-                )}
-              </div>
+                  {review.treatmentType && (
+                    <span className="mt-0.5 block text-xs text-text-muted">
+                      {review.treatmentType}
+                    </span>
+                  )}
+                </div>
             </div>
           ))}
         </div>

@@ -27,10 +27,15 @@ export const SERVICE_ITEMS: NavItem[] = [
 ];
 
 export const SOCIAL_LINKS: { label: string; href: string; platform: string }[] = [
-  { label: 'WhatsApp', href: 'https://wa.me/91XXXXXXXXXX', platform: 'whatsapp' },
+  { label: 'WhatsApp', href: 'https://wa.me/917002059744', platform: 'whatsapp' },
   { label: 'Facebook', href: '#', platform: 'facebook' },
-  { label: 'Instagram', href: '#', platform: 'instagram' },
+  { label: 'Instagram', href: 'https://instagram.com/arpondentalaesthetics', platform: 'instagram' },
 ];
+
+export const DENTIST = {
+  name: 'Dr. Darpon Bora',
+  title: 'Dental Surgeon & Implantologist',
+} as const;
 
 export const SITE_CONFIG = {
   name: 'Arpon Dental Aesthetics',
@@ -38,31 +43,32 @@ export const SITE_CONFIG = {
   location: 'Golaghat, Assam',
 
   address: {
-    street: 'Requires Client Confirmation',
+    street: 'GBM Nursing Home Road',
+    building: 'GDSA Complex, Room No. 8(C)',
+    landmark: 'Near Ratnagiri Travels',
     city: 'Golaghat',
     state: 'Assam',
     pin: '785621',
-    full: 'Golaghat, Assam',
+    country: 'India',
+    full: 'GBM Nursing Home Road, GDSA Complex, Room No. 8(C), Near Ratnagiri Travels, Golaghat, Assam – 785621, India',
   },
 
-  phone: '+91XXXXXXXXXX',
-  whatsapp: '+91XXXXXXXXXX',
-  email: 'Requires Client Confirmation',
+  phone: '+91 70020 59744',
+  whatsapp: '+917002059744',
+  email: 'drdarponbora@gmail.com',
 
   hours: [
-    { label: 'Monday – Friday', value: '10:00 AM – 7:00 PM' },
-    { label: 'Saturday', value: '10:00 AM – 4:00 PM' },
-    { label: 'Sunday', value: 'Closed' },
+    { label: 'Monday – Saturday', value: '10:00 AM – 8:00 PM' },
   ],
 
-  googleMapsUrl: 'Requires Client Confirmation',
-  googleMapsEmbedUrl: 'Requires Client Confirmation',
-  googleReviewsUrl: 'Requires Client Confirmation',
+  googleMapsUrl: 'https://maps.app.goo.gl/xSTcAj5AuDMQiy7w7',
+  googleMapsEmbedUrl: 'https://maps.app.goo.gl/xSTcAj5AuDMQiy7w7',
+  googleReviewsUrl: 'https://maps.app.goo.gl/xSTcAj5AuDMQiy7w7',
 
   social: {
-    whatsapp: 'Requires Client Confirmation',
-    facebook: 'Requires Client Confirmation',
-    instagram: 'Requires Client Confirmation',
+    whatsapp: '+917002059744',
+    facebook: '#',
+    instagram: 'arpondentalaesthetics',
   },
 
   schema: {
@@ -70,22 +76,25 @@ export const SITE_CONFIG = {
     '@id': 'https://arpondental.com/#identity',
     url: 'https://arpondental.com',
     name: 'Arpon Dental Aesthetics',
-    description: 'Premium dental care in Golaghat, Assam. General, cosmetic, and family dentistry.',
+    description: 'Gentle, expert dental care for the whole family in Golaghat, Assam. General, cosmetic, restorative, and family dentistry.',
     image: 'https://arpondental.com/og-image.jpg',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'GBM Nursing Home Road, GDSA Complex, Room No. 8(C)',
       addressLocality: 'Golaghat',
       addressRegion: 'Assam',
+      postalCode: '785621',
       addressCountry: 'IN',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 'Requires Client Confirmation',
-      longitude: 'Requires Client Confirmation',
+      latitude: '26.5158',
+      longitude: '93.9770',
     },
     priceRange: 'INR',
-    telephone: '+91XXXXXXXXXX',
-    openingHours: ['Mo-Fr 10:00-19:00', 'Sa 10:00-16:00'],
+    telephone: '+917002059744',
+    email: 'drdarponbora@gmail.com',
+    openingHours: ['Mo-Sa 10:00-20:00'],
   },
 
   metadata: {

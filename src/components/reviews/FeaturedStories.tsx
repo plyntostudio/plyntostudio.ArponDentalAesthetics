@@ -1,19 +1,27 @@
-const FEATURED = [
+const FEATURED: {
+  name: string;
+  rating: number;
+  text: string;
+  treatmentType: string;
+  date: string;
+  badge?: string;
+}[] = [
   {
-    name: 'Patient Name',
+    name: 'Pranjal Chetia',
     rating: 5,
-    text: 'Placeholder testimonial. Patient stories highlighting exceptional care experiences will appear here once content is confirmed with the clinic.',
-    treatmentType: 'Smile Makeover',
-    date: 'Coming soon',
+    text: 'Dr. Darpon Bora and the entire team were caring and professional. My root canal treatment and dental implant were painless, and the results were excellent.',
+    treatmentType: 'Root Canal Treatment & Dental Implants',
+    date: 'Verified Google Review',
+    badge: 'Local Guide',
   },
   {
-    name: 'Patient Name',
+    name: 'Dibyashree Bordoloi',
     rating: 5,
-    text: 'Placeholder testimonial. Patient stories highlighting exceptional care experiences will appear here once content is confirmed with the clinic.',
-    treatmentType: 'Root Canal Treatment',
-    date: 'Coming soon',
+    text: 'One of the best dental clinics in Golaghat. The clinic is clean, hygienic, and equipped with modern facilities. I was very satisfied with the treatment and highly recommend Arpon Dental Aesthetics.',
+    treatmentType: 'General Dentistry',
+    date: 'Verified Google Review',
   },
-] as const;
+];
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -65,7 +73,14 @@ export function FeaturedStories() {
                   aria-hidden="true"
                 />
                 <div>
-                  <span className="block text-sm font-semibold text-text-main">{review.name}</span>
+                  <span className="block text-sm font-semibold text-text-main">
+                    {review.name}
+                    {review.badge && (
+                      <span className="ml-1.5 inline-block rounded-[3px] bg-accent-bg px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-accent">
+                        {review.badge}
+                      </span>
+                    )}
+                  </span>
                   <span className="block text-xs text-text-muted">
                     {review.treatmentType} &middot; {review.date}
                   </span>

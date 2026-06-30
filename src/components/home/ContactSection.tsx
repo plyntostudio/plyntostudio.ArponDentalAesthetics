@@ -30,7 +30,7 @@ export function ContactSection() {
               <div className="panel-surface mt-8 space-y-5 p-6">
                 <div>
                   <span className="block text-xs font-medium uppercase tracking-wider text-text-muted">Address</span>
-                  <p className="mt-1 text-sm text-text-main">{SITE_CONFIG.address.full}</p>
+                  <a href={SITE_CONFIG.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-text-main transition-colors duration-200 hover:text-accent">{SITE_CONFIG.address.full}</a>
                 </div>
                 <div>
                   <span className="block text-xs font-medium uppercase tracking-wider text-text-muted">Phone</span>
