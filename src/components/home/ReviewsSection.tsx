@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import type { Review } from '@/types';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 const PLACEHOLDER_REVIEWS: Review[] = [
   {
@@ -42,37 +43,38 @@ export function ReviewsSection() {
   return (
     <section className="section-frame bg-white py-[4.5rem] lg:py-24" aria-label="Patient reviews">
       <div className="container-main">
-        <div className="section-intro">
-          <h2 className="section-title">What Our Patients Say</h2>
-          <p className="section-copy">Real feedback from the people we care for.</p>
-        </div>
+        <ScrollReveal>
+          <div className="section-intro">
+            <h2 className="section-title">What Our Patients Say</h2>
+            <p className="section-copy">Real feedback from the people we care for.</p>
+          </div>
+        </ScrollReveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <StaggerContainer className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
           {PLACEHOLDER_REVIEWS.map((review, index) => (
-            <div
-              key={index}
-              className="panel-surface flex h-full flex-col p-6 transition-transform duration-200 hover:-translate-y-1"
-            >
-              <StarRating rating={review.rating} />
-              <blockquote className="mt-4 flex-1 text-[0.95rem] leading-[1.9] text-text-muted">
-                &ldquo;{review.text}&rdquo;
-              </blockquote>
-              <div className="mt-6 border-t border-border/80 pt-4">
-                <span className="block text-sm font-medium text-text-main">{review.name}</span>
-                {review.treatmentType && (
-                  <span className="mt-0.5 block text-xs text-text-muted">{review.treatmentType}</span>
-                )}
+            <StaggerItem key={index}>
+              <div className="card-hover panel-surface flex h-full flex-col p-6">
+                <StarRating rating={review.rating} />
+                <blockquote className="mt-4 flex-1 text-[0.95rem] leading-[1.9] text-text-muted">
+                  &ldquo;{review.text}&rdquo;
+                </blockquote>
+                <div className="mt-6 border-t border-border/80 pt-4">
+                  <span className="block text-sm font-medium text-text-main">{review.name}</span>
+                  {review.treatmentType && (
+                    <span className="mt-0.5 block text-xs text-text-muted">{review.treatmentType}</span>
+                  )}
+                </div>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
-        <div className="mt-10 text-center">
+        <ScrollReveal className="mt-10 text-center" delay={0.3}>
           <Link href="/reviews" className="button-secondary">
             Read All Reviews
             <span aria-hidden="true" className="ml-1.5 text-lg leading-none">&rarr;</span>
           </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

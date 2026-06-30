@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { SERVICE_ITEMS } from '@/lib/constants';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 const FEATURED_DESCRIPTIONS: Record<string, string> = {
   'root-canal-treatment-golaghat':
@@ -40,7 +41,7 @@ interface TreatmentRowProps {
 
 function TreatmentRow({ title, description, href, gradient, reversed }: TreatmentRowProps) {
   return (
-    <div className="panel-surface grid grid-cols-1 items-center gap-8 p-5 md:grid-cols-2 md:gap-12 md:p-7 lg:gap-16 lg:p-8">
+    <div className="card-hover panel-surface grid grid-cols-1 items-center gap-8 p-5 md:grid-cols-2 md:gap-12 md:p-7 lg:gap-16 lg:p-8">
       <div className={reversed ? 'md:order-2' : undefined}>
         <div className={`image-surface aspect-[4/3] w-full bg-gradient-to-br ${gradient}`} aria-hidden="true" />
       </div>
@@ -66,32 +67,35 @@ export function FeaturedTreatmentsSection() {
   return (
     <section className="section-frame bg-white py-[4.5rem] lg:py-24" aria-label="Featured treatments">
       <div className="container-main">
-        <div className="section-intro">
-          <h2 className="section-title">Treatments We Offer</h2>
-          <p className="section-copy">
-            Comprehensive dental care tailored to your needs, from routine check-ups to advanced restorative procedures.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="section-intro">
+            <h2 className="section-title">Treatments We Offer</h2>
+            <p className="section-copy">
+              Comprehensive dental care tailored to your needs, from routine check-ups to advanced restorative procedures.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="mt-14 space-y-9 lg:mt-16 lg:space-y-10">
+        <StaggerContainer className="mt-14 space-y-9 lg:mt-16 lg:space-y-10">
           {featured.map((item, index) => (
-            <TreatmentRow
-              key={item.href}
-              title={item.label}
-              description={FEATURED_DESCRIPTIONS[extractSlug(item.href)] ?? ''}
-              href={item.href}
-              gradient={GRADIENTS[index]}
-              reversed={index % 2 !== 0}
-            />
+            <StaggerItem key={item.href}>
+              <TreatmentRow
+                title={item.label}
+                description={FEATURED_DESCRIPTIONS[extractSlug(item.href)] ?? ''}
+                href={item.href}
+                gradient={GRADIENTS[index]}
+                reversed={index % 2 !== 0}
+              />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
-        <div className="mt-14 text-center">
+        <ScrollReveal className="mt-14 text-center" delay={0.3}>
           <Link href="/services" className="button-secondary">
             View All Services
             <span aria-hidden="true" className="ml-1.5 text-lg leading-none">&rarr;</span>
           </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

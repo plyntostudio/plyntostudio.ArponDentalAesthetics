@@ -52,7 +52,7 @@ export function Header() {
             </a>
             <a
               href="/book"
-              className="inline-flex items-center rounded-[6px] bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark active:scale-[0.98]"
+              className="inline-flex items-center rounded-[6px] bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark active:scale-[0.97]"
             >
               Book Appointment
             </a>
