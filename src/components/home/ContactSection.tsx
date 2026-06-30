@@ -10,10 +10,18 @@ export function ContactSection() {
       <div className="container-main">
         <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-2 md:gap-16 lg:gap-20">
           <ScrollReveal>
-            <div
-              className="image-surface aspect-[16/9] w-full bg-gradient-to-br from-highlight via-white to-accent-bg"
-              aria-hidden="true"
-            />
+            <div className="overflow-hidden rounded-[26px] border border-border shadow-card">
+              <div className="relative w-full" style={{ aspectRatio: '16 / 9' }}>
+                <iframe
+                  src={SITE_CONFIG.googleMapsEmbedUrl}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="Arpon Dental Aesthetics Location"
+                  className="absolute inset-0 h-full w-full"
+                />
+              </div>
+            </div>
           </ScrollReveal>
 
           <div className="max-w-xl">

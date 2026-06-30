@@ -1,3 +1,5 @@
+import { SITE_CONFIG } from '@/lib/constants';
+
 export function LocationMap() {
   return (
     <section className="bg-white py-16 lg:py-20" aria-label="Location map">
@@ -10,13 +12,47 @@ export function LocationMap() {
         </div>
 
         <div className="mx-auto mt-8 max-w-4xl">
-          <div
-            className="aspect-[16/7] w-full rounded-[6px] bg-gradient-to-br from-highlight to-accent-bg"
-            aria-hidden="true"
-          />
-          <p className="mt-3 text-center text-xs font-medium uppercase tracking-wider text-text-muted">
-            Map placeholder — Google Maps embed will appear here once location is confirmed
-          </p>
+          <div className="overflow-hidden rounded-[6px] border border-border shadow-soft">
+            <div className="relative w-full" style={{ aspectRatio: '16 / 9' }}>
+              <iframe
+                src={SITE_CONFIG.googleMapsEmbedUrl}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Arpon Dental Aesthetics Location"
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="text-sm leading-relaxed text-text-muted">
+                <span className="font-medium text-text-main">Arpon Dental Aesthetics</span><br />
+                {SITE_CONFIG.address.street}<br />
+                {SITE_CONFIG.address.building}<br />
+                {SITE_CONFIG.address.landmark}<br />
+                {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.pin}
+              </p>
+              <p className="mt-3 text-sm text-text-muted">
+                <span className="font-medium text-text-main">Phone:</span>{' '}
+                <a href={`tel:${SITE_CONFIG.phone}`} className="text-accent transition-colors duration-200 hover:text-accent-dark">
+                  {SITE_CONFIG.phone}
+                </a>
+              </p>
+            </div>
+            <div className="text-center md:text-right">
+              <a
+                href={SITE_CONFIG.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button-secondary"
+              >
+                Get Directions
+                <span aria-hidden="true" className="ml-1.5 text-lg leading-none">&rarr;</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

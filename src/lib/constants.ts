@@ -62,7 +62,7 @@ export const SITE_CONFIG = {
   ],
 
   googleMapsUrl: 'https://maps.app.goo.gl/xSTcAj5AuDMQiy7w7',
-  googleMapsEmbedUrl: 'https://maps.app.goo.gl/xSTcAj5AuDMQiy7w7',
+  googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3570.204671194185!2d93.96814081143415!3d26.51354117679091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37468f2026983b73%3A0xaac669d1424d3b25!2sArpon%20Dental%20Aesthetics%20-%20Best%20Dentist%20in%20Golaghat%20%7C%20Best%20Dental%20Clinic%20in%20Golaghat!5e0!3m2!1sen!2sin!4v1782857267874!5m2!1sen!2sin',
   googleReviewsUrl: 'https://maps.app.goo.gl/xSTcAj5AuDMQiy7w7',
 
   social: {
