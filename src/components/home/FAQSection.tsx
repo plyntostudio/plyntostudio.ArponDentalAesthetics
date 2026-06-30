@@ -30,21 +30,17 @@ const FAQS = [
 
 export function FAQSection() {
   return (
-    <section className="bg-highlight py-16 lg:py-20" aria-label="Frequently asked questions">
+    <section className="section-frame section-divider bg-highlight py-[4.5rem] lg:py-24" aria-label="Frequently asked questions">
       <div className="container-main">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.1] text-text-main">
-            Frequently Asked Questions
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-text-muted">
-            Answers to the questions we hear most often.
-          </p>
+        <div className="section-intro">
+          <h2 className="section-title">Frequently Asked Questions</h2>
+          <p className="section-copy">Answers to the questions we hear most often.</p>
         </div>
 
-        <div className="mx-auto mt-10 max-w-xl divide-y divide-border">
+        <div className="panel-surface mx-auto mt-12 max-w-3xl divide-y divide-border/80 px-5 md:px-7">
           {FAQS.map((faq) => (
             <details key={faq.question} className="group py-2">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 py-3 text-sm font-medium text-text-main transition-colors duration-200 hover:text-accent [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 py-4 text-left text-[0.98rem] font-medium text-text-main transition-colors duration-200 hover:text-accent [&::-webkit-details-marker]:hidden">
                 {faq.question}
                 <span
                   className="shrink-0 text-lg text-text-muted transition-transform duration-200 group-open:rotate-45"
@@ -54,17 +50,14 @@ export function FAQSection() {
                 </span>
               </summary>
               <div className="pb-5 pt-1">
-                <p className="text-sm leading-relaxed text-text-muted">{faq.answer}</p>
+                <p className="max-w-2xl text-sm leading-[1.9] text-text-muted">{faq.answer}</p>
               </div>
             </details>
           ))}
         </div>
 
         <div className="mt-10 text-center">
-          <Link
-            href="/faq"
-            className="inline-flex items-center justify-center rounded-[6px] border-2 border-border bg-transparent px-8 py-3.5 text-base font-semibold text-text-main transition-all duration-200 hover:border-text-muted hover:bg-white active:scale-[0.98]"
-          >
+          <Link href="/faq" className="button-secondary">
             View All FAQs
             <span aria-hidden="true" className="ml-1.5 text-lg leading-none">&rarr;</span>
           </Link>

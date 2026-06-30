@@ -20,6 +20,12 @@
   --font-display: var(--font-instrument-serif), Georgia, serif;
 
   --radius-btn: 6px;
+  --radius-panel: 22px;
+  --radius-image: 26px;
+
+  --shadow-soft: 0 18px 44px rgba(28, 28, 26, 0.06);
+  --shadow-card: 0 28px 64px rgba(22, 29, 28, 0.08);
+  --shadow-lift: 0 18px 36px rgba(12, 36, 36, 0.12);
 
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
@@ -40,10 +46,14 @@
 
   body {
     background-color: var(--color-bg);
+    background-image:
+      radial-gradient(circle at top left, rgba(26, 122, 122, 0.06), transparent 26%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(250, 250, 248, 1));
     color: var(--color-text-main);
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.7;
+    letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -109,6 +119,145 @@
 
   @media (width >= 1280px) {
     padding-inline: 4rem;
+  }
+}
+
+@utility section-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+@utility section-divider {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(28, 28, 26, 0.12), transparent);
+  }
+}
+
+@utility section-intro {
+  margin-inline: auto;
+  max-width: 42rem;
+  text-align: center;
+}
+
+@utility section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.8rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--color-text-main);
+  text-wrap: balance;
+}
+
+@utility section-copy {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.05vw, 1.1rem);
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+@utility panel-surface {
+  border: 1px solid rgba(28, 28, 26, 0.08);
+  border-radius: var(--radius-panel);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
+  box-shadow: var(--shadow-soft);
+}
+
+@utility image-surface {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(28, 28, 26, 0.08);
+  border-radius: var(--radius-image);
+  box-shadow: var(--shadow-card);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(28, 28, 26, 0.1));
+    pointer-events: none;
+  }
+}
+
+@utility button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-btn);
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-dark));
+  padding: 0.875rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 180ms ease,
+    box-shadow 220ms ease,
+    filter 180ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lift);
+    filter: saturate(1.03);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.985);
+  }
+}
+
+@utility button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-btn);
+  border: 1px solid rgba(28, 28, 26, 0.12);
+  background: rgba(255, 255, 255, 0.84);
+  padding: 0.875rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-text-main);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 220ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: rgba(28, 28, 26, 0.2);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--shadow-soft);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.985);
+  }
+}
+
+@utility text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-accent-dark);
+  transition:
+    color 180ms ease,
+    gap 180ms ease;
+
+  &:hover {
+    color: var(--color-accent);
+    gap: 0.5rem;
   }
 }
 
