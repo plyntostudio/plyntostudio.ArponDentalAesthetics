@@ -3,16 +3,19 @@ import { ScrollReveal } from './ScrollReveal';
 export function TrustParallaxSection() {
   return (
     <section
-      className="section-frame flex min-h-[50vh] items-center justify-center overflow-hidden bg-fixed bg-gradient-to-br from-accent-dark/95 via-accent/90 to-highlight/95 max-md:bg-scroll"
+      className="section-frame flex min-h-[50vh] items-center justify-center overflow-hidden bg-fixed bg-[url('/images/parallax/clinic.jpg')] bg-cover bg-center bg-no-repeat max-md:bg-scroll"
       aria-label="Trust and care"
     >
-      <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
       <div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-black/25"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 opacity-25"
         aria-hidden="true"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15) 0%, transparent 40%)',
+            'radial-gradient(circle at 25% 45%, rgba(255,255,255,0.2) 0%, transparent 50%), radial-gradient(circle at 70% 25%, rgba(255,255,255,0.08) 0%, transparent 40%)',
         }}
       />
       <div className="container-main relative">

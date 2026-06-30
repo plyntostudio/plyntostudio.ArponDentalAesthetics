@@ -1,0 +1,16 @@
+{
+  "name": "Arpon Dental Aesthetics",
+  "short_name": "Arpon Dental",
+  "description": "Arpon Dental Aesthetics offers gentle, expert dental care for the whole family in Golaghat, Assam.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#FAFAF8",
+  "background_color": "#FAFAF8",
+  "display": "standalone",
+  "start_url": "/"
+}

@@ -79,6 +79,7 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="flex min-h-dvh flex-col bg-bg text-text-main font-sans antialiased">
         <SkipLink />
