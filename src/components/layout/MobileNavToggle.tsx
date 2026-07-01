@@ -24,23 +24,26 @@ export const MobileNavToggle = forwardRef<HTMLButtonElement, MobileNavToggleProp
         <span
           aria-hidden="true"
           className={cn(
-            'absolute block h-[2px] w-5 rounded-full bg-text-main transition-all duration-250 ease-out',
+            'absolute block h-[2px] w-5 rounded-full bg-text-main transition-all duration-[400ms]',
             open ? 'translate-y-0 rotate-45' : '-translate-y-[6px]',
           )}
+          style={{ transitionTimingFunction: open ? 'cubic-bezier(0.23, 1, 0.32, 1)' : 'cubic-bezier(0.23, 1, 0.32, 1)' }}
         />
         <span
           aria-hidden="true"
           className={cn(
-            'absolute block h-[2px] w-5 rounded-full bg-text-main transition-all duration-200 ease-out',
+            'absolute block h-[2px] w-5 rounded-full bg-text-main transition-all duration-300',
             open ? 'opacity-0 scale-x-0' : 'opacity-100',
           )}
+          style={{ transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)' }}
         />
         <span
           aria-hidden="true"
           className={cn(
-            'absolute block h-[2px] w-5 rounded-full bg-text-main transition-all duration-250 ease-out',
+            'absolute block h-[2px] w-5 rounded-full bg-text-main transition-all duration-[400ms]',
             open ? 'translate-y-0 -rotate-45' : 'translate-y-[6px]',
           )}
+          style={{ transitionTimingFunction: open ? 'cubic-bezier(0.23, 1, 0.32, 1)' : 'cubic-bezier(0.23, 1, 0.32, 1)' }}
         />
       </button>
     );

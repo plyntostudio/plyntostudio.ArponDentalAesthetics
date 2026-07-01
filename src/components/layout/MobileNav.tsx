@@ -21,27 +21,35 @@ function isActiveRoute(pathname: string, href: string): boolean {
   return pathname.startsWith(href);
 }
 
+const easeOut = [0.23, 1, 0.32, 1] as const;
+
 const overlayVariants = {
   hidden: { x: '100%' },
   visible: {
     x: 0,
-    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] } as const,
+    transition: { duration: 0.35, ease: easeOut },
   },
   exit: {
     x: '100%',
-    transition: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] } as const,
+    transition: { duration: 0.25, ease: easeOut },
   },
 };
 
+const backdropVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.25 } },
+  exit: { opacity: 0, transition: { duration: 0.2 } },
+};
+
 const linkVariants = {
-  hidden: { opacity: 0, x: 24 },
+  hidden: { opacity: 0, x: 20 },
   visible: (i: number) => ({
     opacity: 1,
     x: 0,
     transition: {
-      delay: 0.08 + i * 0.04,
+      delay: 0.06 + i * 0.04,
       duration: 0.3,
-      ease: [0.25, 0.1, 0.25, 1] as const,
+      ease: easeOut,
     },
   }),
 };
@@ -122,7 +130,13 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
           onClick={handleBackdropClick}
           aria-hidden={!open}
         >
-          <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" />
+          <motion.div
+            variants={disableAnimation ? undefined : backdropVariants}
+            initial={disableAnimation ? false : 'hidden'}
+            animate={disableAnimation ? undefined : 'visible'}
+            exit={disableAnimation ? undefined : 'exit'}
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm"
+          />
           <motion.div
             ref={overlayRef}
             id="mobile-navigation"
@@ -162,14 +176,14 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
                       <Link
                         href={item.href}
                         className={cn(
-                          'flex items-center rounded-[6px] px-4 py-3 text-lg transition-colors duration-200',
+                          'flex items-center rounded-[6px] px-4 py-3 text-lg transition-all duration-200',
                           active
                             ? 'bg-accent-bg font-medium text-accent'
-                            : 'text-text-main hover:bg-highlight',
+                            : 'text-text-main hover:bg-highlight hover:text-accent-dark',
                         )}
                         aria-current={active ? 'page' : undefined}
                       >
-                        {item.label}
+                        <span className={cn(active && 'ml-0.5')}>{item.label}</span>
                       </Link>
                     </motion.li>
                   );
@@ -180,7 +194,7 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
             <div className="border-t border-border px-4 py-6 space-y-3">
               <a
                 href={`tel:${SITE_CONFIG.phone}`}
-                className="flex w-full items-center justify-center rounded-[6px] bg-accent px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
+                className="flex w-full items-center justify-center rounded-[6px] bg-accent px-4 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark active:scale-[0.97]"
               >
                 Call {SITE_CONFIG.phone}
               </a>
@@ -188,7 +202,7 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
                 href={`https://wa.me/${SITE_CONFIG.whatsapp.replace(/[^0-9]/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center rounded-[6px] border border-accent px-4 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent-bg"
+                className="flex w-full items-center justify-center rounded-[6px] border border-accent px-4 py-3 text-sm font-semibold text-accent transition-all duration-200 hover:bg-accent-bg active:scale-[0.97]"
               >
                 Message on WhatsApp
               </a>

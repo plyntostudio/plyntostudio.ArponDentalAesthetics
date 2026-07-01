@@ -29,10 +29,10 @@ export function DesktopNav({ items }: DesktopNavProps) {
               <Link
                 href={item.href}
                 className={cn(
-                  'relative inline-flex items-center px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-[6px]',
+                  'relative inline-flex items-center px-3 py-2 text-sm font-medium transition-all duration-200 rounded-[6px]',
                   active
                     ? 'text-accent'
-                    : 'text-text-muted hover:text-text-main',
+                    : 'text-text-muted hover:text-text-main hover:bg-highlight/60',
                 )}
                 aria-current={active ? 'page' : undefined}
               >

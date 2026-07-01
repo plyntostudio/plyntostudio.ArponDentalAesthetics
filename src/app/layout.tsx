@@ -5,6 +5,7 @@ import { SkipLink } from '@/components/layout/SkipLink';
 import { SchemaOrg } from '@/components/layout/SchemaOrg';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { FloatingActions } from '@/components/layout/FloatingActions';
 import { SITE_CONFIG } from '@/lib/constants';
 
 import './globals.css';
@@ -89,6 +90,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <FloatingActions />
       </body>
     </html>
   );
