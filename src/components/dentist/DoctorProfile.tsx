@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { DENTIST } from '@/lib/constants';
 
 export function DoctorProfile() {
@@ -5,10 +6,13 @@ export function DoctorProfile() {
     <section className="bg-white py-16 lg:py-20" aria-label="Doctor profile">
       <div className="container-main">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
-          <div>
-            <div
-              className="aspect-[3/4] w-full rounded-[6px] bg-gradient-to-br from-highlight to-accent-bg"
-              aria-hidden="true"
+          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[6px]">
+            <Image
+              src="/images/doctors/doctor(1).jpg"
+              alt={`${DENTIST.name} — ${DENTIST.title}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div>

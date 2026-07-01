@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { DENTIST } from '@/lib/constants';
@@ -10,10 +11,15 @@ export function MeetDentistSection() {
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20">
           <ScrollReveal>
             <div className="relative">
-              <div
-                className="image-surface aspect-[4/5] w-full bg-gradient-to-br from-highlight via-white to-accent-bg md:aspect-[3/4]"
-                aria-hidden="true"
-              />
+              <div className="image-surface aspect-[4/5] w-full overflow-hidden md:aspect-[3/4]">
+                <Image
+                  src="/images/doctors/doctor(1).jpg"
+                  alt={`${DENTIST.name} — ${DENTIST.title}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
               <div className="absolute bottom-4 left-4 right-4 rounded-[6px] bg-white/90 backdrop-blur-sm px-4 py-3 shadow-soft">
                 <p className="text-sm font-medium text-text-main">{DENTIST.name}</p>
                 <p className="text-xs text-text-muted">{DENTIST.title}</p>

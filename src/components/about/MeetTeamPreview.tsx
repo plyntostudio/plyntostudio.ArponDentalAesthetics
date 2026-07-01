@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { DENTIST } from '@/lib/constants';
 
@@ -20,7 +21,7 @@ const TEAM_MEMBERS = [
     description:
       'The first and last smile you see. Our coordinator handles scheduling, insurance, and ensures a seamless visit.',
   },
-] as const;
+];
 
 export function MeetTeamPreview() {
   return (
@@ -36,12 +37,24 @@ export function MeetTeamPreview() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
-          {TEAM_MEMBERS.map((member) => (
-            <div key={member.name} className="text-center">
-              <div
-                className="mx-auto aspect-[3/4] w-full max-w-[260px] rounded-[6px] bg-gradient-to-br from-highlight to-accent-bg"
-                aria-hidden="true"
-              />
+          {TEAM_MEMBERS.map((member, i) => (
+            <div key={member.name || i} className="text-center">
+              {i === 0 ? (
+                <div className="relative mx-auto aspect-[3/4] w-full max-w-[260px] overflow-hidden rounded-[6px]">
+                  <Image
+                    src="/images/doctors/doctor(1).jpg"
+                    alt={`${DENTIST.name} — ${DENTIST.title}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+              ) : (
+                <div
+                  className="mx-auto aspect-[3/4] w-full max-w-[260px] rounded-[6px] bg-gradient-to-br from-highlight to-accent-bg"
+                  aria-hidden="true"
+                />
+              )}
               <h3 className="mt-5 font-serif text-xl leading-snug text-text-main">{member.name}</h3>
               <p className="mt-0.5 text-xs font-semibold uppercase tracking-wider text-accent">{member.role}</p>
               <p className="mt-2 text-sm leading-relaxed text-text-muted">{member.description}</p>
